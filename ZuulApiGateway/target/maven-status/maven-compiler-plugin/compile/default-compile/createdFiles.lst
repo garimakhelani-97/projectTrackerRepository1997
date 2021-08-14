@@ -1,0 +1,4 @@
+com\smrc\api\gateway\ZuulApiGatewayApplication.class
+com\smrc\api\gateway\security\ZuulLoggingFilter.class
+com\smrc\api\gateway\security\AuthorizationFilter.class
+com\smrc\api\gateway\security\WebSecurity.class
