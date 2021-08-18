@@ -1,0 +1,74 @@
+// ==================================================
+// HEADER
+// ==================================================
+@mixin framework1-toolbar-theme($theme) {
+  $background: mat-color($theme, 'background');
+  $foreground: mat-color($theme, 'foreground');
+
+  .framework1-toolbar {
+    color: mat-color($background, header-icon);
+    height: 50px !important;
+  }
+  .framework1-branding i svg path  {
+    fill: mat-color($background, header-icon);
+  }
+  .mat-button-wrapper i {
+      position: absolute;
+      top: 12px;
+      left: 10px;
+
+  svg path  {
+    fill: mat-color($background, header-icon);
+ }
+}
+}
+
+.framework1-header {
+ // position: relative;
+  z-index: 201;
+  display: block;
+
+  .framework1-toolbar {
+    padding: 0;
+   // color:#fff;
+    //color: mat-color($background, text);
+  }
+
+  .framework1-user-avatar {
+    margin-right: 8px;
+
+    [dir='rtl'] & {
+      margin-left: 8px;
+      margin-right: auto;
+    }
+  }
+
+  // Layout control
+  .framework1-header-fixed & {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.framework1-toolbar {
+  @include mat-elevation(2);
+
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: .875rem;
+    border-radius: 10px;
+  }
+}
+
+.framework1-hamburger.mat-button {
+  height: 100%;
+  padding: 0;
+
+  @include bp-lt(small) {
+    & {
+      min-width: 15%;
+    }
+  }
+}

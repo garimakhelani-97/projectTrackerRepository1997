@@ -1,0 +1,14 @@
+[
+    {
+        "value": "booleanValues",
+        "label": "BooleanValues"
+    },
+    {
+        "value": "statusValues",
+        "label": "StatusValues"
+    },
+    {
+        "value": "options",
+        "label": "Options"
+    }
+]

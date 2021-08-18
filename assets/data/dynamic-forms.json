@@ -1,0 +1,51 @@
+[
+    {
+      "key": "Input",
+      "type": "input",
+      "templateOptions": {
+        "label": "Input",
+        "placeholder": "Placeholder",
+        "description": "Description",
+        "required": true
+        }
+    },
+    {
+      "key": "Textarea",
+      "type": "textarea",
+      "templateOptions": {
+        "label": "Textarea",
+        "placeholder": "Placeholder",
+        "description": "Description",
+        "required": true
+        }
+    },
+    {
+      "key": "Checkbox",
+      "type": "checkbox",
+      "templateOptions": {
+        "label": "Accept terms",
+        "description": "In order to proceed, please accept terms",
+        "required": true
+        }
+    },
+    {
+      "key": "Radio",
+      "type": "radio",
+      "templateOptions": {
+        "label": "Radio",
+        "placeholder": "Placeholder",
+        "description": "Description",
+        "required": true,
+        "options": [
+                { "value": 1, "label": "Option 1"
+                },
+                { "value": 2, "label": "Option 2"
+                },
+                { "value": 3, "label": "Option 3"
+                },
+                { "value": 4, "label": "Option 4"
+                }
+            ]
+        }
+    }
+]

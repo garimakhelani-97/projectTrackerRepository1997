@@ -1,0 +1,58 @@
+{
+  "menu": [
+    {
+      "menuName": "Home",
+      "uri": "project-controller",
+      "menuType": "link",
+      "menuKey": "dashboard",
+      "orderId": 1,
+      "subMenu": []
+    },
+    {
+    "menuName": "Dashboard",
+    "uri": "dashboard",
+    "menuType": "link",
+    "menuKey": "dashboard",
+    "orderId": 2,
+    "subMenu": []
+  },
+  {
+    "menuName": "Reports",
+    "uri": "reports",
+    "menuType": "link",
+    "menuKey": "dashboard",
+    "orderId": 3,
+    "subMenu": []
+  },
+  {
+    "menuName": "Activity Tracker",
+    "uri": "activity-tracker",
+    "menuType": "link",
+    "menuKey": "dashboard",
+    "orderId": 2,
+    "subMenu": []
+  },
+  {
+    "menuName": "Menu1",
+    "uri": "design",
+    "menuType": "sub",
+    "menuKey": "dashboard",
+    "orderId": 5,
+    "subMenu": [
+      {
+        "uri": "colors",
+        "orderId": "1",
+        "subMenuType": "link",
+        "subMenuName": "Colors System"
+      },
+      {
+        "uri": "icon",
+        "orderId": "2",
+        "subMenuType": "link",
+        "subMenuName": "Icons"
+      }
+    ]
+  }
+]
+    
+}

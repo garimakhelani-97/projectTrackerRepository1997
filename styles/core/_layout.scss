@@ -1,0 +1,119 @@
+// ==================================================
+// LAYOUT
+// ==================================================
+
+.framework1-container-wrap,
+.framework1-container {
+  height: 100%;
+}
+
+.framework1-content {
+  position: relative;
+  padding: $gutter;
+}
+
+// TODO: Grid row
+.framework1-row {
+  margin-right: -$gutter/2;
+  margin-left: -$gutter/2;
+}
+
+// TODO: Grid col
+.framework1-col {
+  padding-right: $gutter/2;
+  padding-left: $gutter/2;
+}
+
+// Layout control
+.framework1-header-above {
+  .framework1-container {
+    height: calc(100% - #{$toolbar-height-desktop}) !important;
+  }
+
+  .framework1-sidebar-inner {
+    height: 100% !important;
+  }
+}
+
+// Fix the init content width
+.framework1-content-width-fix {
+  .framework1-content-wrap {
+    margin-left: $sidenav-width !important;
+
+    [dir='rtl'] & {
+      margin-left: auto !important;
+      margin-right: $sidenav-width !important;
+    }
+  }
+}
+
+//
+// Auth
+//
+.framework1-auth-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #212121;
+ background-size: 60px 60px;
+}
+
+.login-screen {background-color: #fff;}
+.login-screen .hris-logo {position: fixed;top: 20px;left: 25px;z-index: 99;  }
+.login-screen .hris-logo .icon-logo {display: block }
+.login-screen .hris-logo .icon-logo .graphic-style {fill: #fff }
+.carousel-slide {height: 100vh !important;}
+.left-panel{
+  min-height:100vh;
+	background: rgba(246,84,10,1);
+	background: -moz-linear-gradient(top, rgba(246,84,10,1) 0%, rgba(212,17,3,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(246,84,10,1)), color-stop(100%, rgba(212,17,3,1)));
+	background: -webkit-linear-gradient(top, rgba(246,84,10,1) 0%, rgba(212,17,3,1) 100%);
+	background: -o-linear-gradient(top, rgba(246,84,10,1) 0%, rgba(212,17,3,1) 100%);
+	background: -ms-linear-gradient(top, rgba(246,84,10,1) 0%, rgba(212,17,3,1) 100%);
+	background: linear-gradient(to bottom, rgba(246,84,10,1) 0%, rgba(212,17,3,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6540a', endColorstr='#d41103', GradientType=0 );
+}
+
+.login-screen .contents {width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  max-width: 65%; margin: 0 auto; color:#fff;
+  p {line-height:1.5;}
+}
+
+.login-screen .login-body {width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  max-width: 60%; margin:0 auto;
+  h2 {font-size: 2rem; font-family: barlowmedium; font-weight:normal;}
+  .user-panel{
+  .user-image
+  {border: 4px solid #e0e0e0;
+    border-radius: 999px;
+    height: 106px;
+    width: 106px;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    overflow: hidden;}
+    span {display: block; margin:0 0 .5em 0;
+      &.company {color:#da2128}
+      }
+}
+
+}
+
+
+@media screen and (max-width: 767px){
+.login-screen .left-panel {
+    display: none;
+}
+.login-screen .hris-logo .icon-logo .graphic-style
+{fill: #da2128 }
+
+}
+@media screen and (max-width: 768px){
+  .login-screen .login-body {max-width:90%;}
+}
+.login-screen {
+  .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab[disabled]:not([class*=mat-elevation-z]) {box-shadow:none !important;}
+  .mat-mini-fab {background-color:rgba(255,255,255,1) !important;}
+  .mat-mini-fab[disabled][disabled] {background-color:rgba(255,255,255,.3) !important;}
+}

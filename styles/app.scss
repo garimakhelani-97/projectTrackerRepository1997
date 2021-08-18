@@ -1,0 +1,305 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+//
+// Light style
+//
+// $primary: mat-palette($mat-indigo);
+// $accent: mat-palette($mat-pink, A200, A100, A400);
+// $warn: mat-palette($mat-red);
+// $theme: mat-light-theme($primary, $accent, $warn);
+
+//////////////////////////////////////////////////////////////////////////////////////
+// When we use the Schematics (`ng add`) to start, the following variables will be  //
+// used to create a dark theme! This strategy will not generate redundant codes.    //
+//////////////////////////////////////////////////////////////////////////////////////
+
+//
+// Dark style
+//
+// $primary: mat-palette($mat-blue);
+// $accent: mat-palette($mat-amber, A200, A100, A400);
+// $theme: mat-dark-theme($primary, $accent);
+
+$config: mat-typography-config();
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+$white-color:#ffffff;
+
+$mat-acqa: (
+  50: #E7F6F6,
+  100: #B9EFE9,
+  200: #7CD2C9,
+  300: #48C8BB,
+  400: #0ABBA9,
+  500: #00B8A5,
+  600: #03A292,
+  700: #018477,
+  800: #00645A,
+  900: #004D45,
+  A100: #A7F9E7,
+  A200: #78F8D9,
+  A400: #2AFFCA,
+  A700: #00BFA5,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$mat-red-theme: (
+  50: #FFF3F4,
+  100: #FFE1E2,
+  200: #FF8287,
+  300: #FC5057,
+  400: #F2252D,
+  500: #DB2128,
+  600: #C4131A,
+  700: #B71B21,
+  800: #9B0001,
+  900: #8B0304,
+  A100: #FFABA4,
+  A200: #FF7D7D,
+  A400: #F0413D,
+  A700: #D50000,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$mat-grey-theme: (
+  50: #FAFAFA,
+  100: #F5F5F5,
+  200: #EEEEEE,
+  300: #BCBDBE,
+  400: #505153,
+  500: #303030,
+  600: #403F3F,
+  700: #363636,
+  800: #202020,
+  900: #1D1D1D,
+  A100: #FFABA4,
+  A200: #FF7D7D,
+  A400: #F0413D,
+  A700: #D50000,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+
+$mat-grey-theme-background: (
+  status-bar: $white-color,
+  app-bar:    $white-color,
+  background: $white-color,
+  hover:      map_get($mat-grey-theme, 100),
+  card:      $white-color,
+  dialog:     $white-color,
+  disabled-button: $white-12-opacity,
+  raised-button: $white-color,
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey-theme, 100),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: map_get($mat-grey, 1000),
+  sidenav: $white-color,
+  drawer: $white-color,
+  header-icon: map_get($mat-grey-theme, 500),
+  sidenav-highlight-menu:$white-color,
+  logo-color:map_get($mat-grey-theme, 500),
+);
+
+// Foreground palette for light themes.
+$mat-grey-theme-foreground: (
+  base:              $white-color,
+  divider:           $black-12-opacity,
+  dividers:          $black-12-opacity,
+  disabled:          rgba(black, 0.38),
+  disabled-button:   rgba(black, 0.38),
+  disabled-text:     rgba(black, 0.38),
+  hint-text:         rgba(black, 0.38),
+  secondary-text:    map_get($mat-grey-theme,400),
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              map_get($mat-grey-theme,400),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+  sidenav-text : map_get($mat-grey-theme, 500),
+);
+  $primary: mat-palette($mat-grey-theme,500);
+  $accent: mat-palette($mat-grey-theme,800);
+  $warn: mat-palette($mat-red-theme);
+  $background-color: map_get($mat-red, 500);
+  $theme: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $mat-grey-theme-foreground,
+    background: $mat-grey-theme-background,
+  );
+
+@import 'theming';
+@include angular-material-theme($theme);
+@include framework1-admin-theme($theme);
+
+
+//red Theme
+.theme-red {
+$mat-red-theme-background: (
+ // status-bar: #da2128,
+  app-bar:    map_get($mat-red-theme,500),
+  background: $white-color,
+  hover:      map_get($mat-red-theme,50),
+  card:       $white-color,
+  dialog:     $white-color,
+  disabled-button: $white-12-opacity,
+  raised-button: $white-color,
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey-theme, 100),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: map_get($mat-grey, 1000),
+  sidenav: $white-color,
+  drawer: $white-color,
+  header-icon: $white-color,
+  sidenav-highlight-menu:$white-color,
+  logo-color:$white-color,
+);
+
+// Foreground palette for light themes.
+$mat-red-theme-foreground: (
+  base:              map_get($mat-red-theme,500),
+  divider:           $black-12-opacity,
+  dividers:          $black-12-opacity,
+  disabled:          rgba(black, 0.38),
+  disabled-button:   rgba(black, 0.38),
+  disabled-text:     rgba(black, 0.38),
+  hint-text:         rgba(black, 0.38),
+  secondary-text:    map_get($mat-grey-theme,400),
+  icon:              rgba(black, 0.54),
+  icons:             rgba(white, 0.54),
+  text:              map_get($mat-grey-theme,400),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+  sidenav-text :rgba(black, 0.87),
+);
+  $primary: mat-palette($mat-red-theme);
+  $accent: mat-palette($mat-grey-theme,500);
+  $warn: mat-palette($mat-red-theme);
+  $background-color: map_get($mat-red, 500);
+  $theme: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $mat-red-theme-foreground,
+    background: $mat-red-theme-background,
+  );
+
+  @import 'theming';
+  @include angular-material-theme($theme);
+  @include framework1-admin-theme($theme);
+  //@include mat-form-field-theme($theme, accent);
+}
+
+// Theme Acqa //////////////////////////////////////////////////////////////////////////
+.theme-acqa {
+  $mat-acqa-theme-background: (
+  //  status-bar: rgb(34, 18, 180),
+    app-bar:    map_get($mat-acqa, 500),
+    background: $white-color,
+    hover:      map_get($mat-acqa, 50),
+    card:       $white-color,
+    dialog:     $white-color,
+    disabled-button: $white-12-opacity,
+    raised-button: $white-color,
+    focused-button: $white-6-opacity,
+    selected-button: map_get($mat-grey-theme, 100),
+    selected-disabled-button: map_get($mat-grey, 800),
+    disabled-button-toggle: map_get($mat-grey, 1000),
+    sidenav: $white-color,
+    drawer: $white-color,
+    header-icon:$white-color,
+    sidenav-highlight-menu:$white-color,
+    logo-color:$white-color,
+  );
+  
+  // Foreground palette for light themes.
+  $mat-acqa-theme-foreground: (
+    base:              map_get($mat-acqa, 500),
+    divider:           $black-12-opacity,
+    dividers:          $black-12-opacity,
+    disabled:          rgba(black, 0.38),
+    disabled-button:   rgba(black, 0.38),
+    disabled-text:     rgba(black, 0.38),
+    hint-text:         rgba(black, 0.38),
+    secondary-text:    map_get($mat-grey-theme,400),
+    icon:              rgba(black, 0.54),
+    icons:             rgba(black, 0.54),
+    text:              map_get($mat-grey-theme,400),
+    slider-off:        rgba(black, 0.26),
+    slider-off-active: rgba(black, 0.38),
+    sidenav-text :rgba(black, 0.87),
+  );
+    $primary: mat-palette($mat-acqa);
+    $accent: mat-palette($mat-grey-theme,500);
+    $warn: mat-palette($mat-red-theme);
+    $background-color: map_get($mat-acqa, 500);
+    $theme: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+      is-dark: false,
+      foreground: $mat-acqa-theme-foreground,
+      background:$mat-acqa-theme-background,
+    );
+  
+    @import 'theming';
+    @include angular-material-theme($theme);
+    @include framework1-admin-theme($theme);
+  }
+  

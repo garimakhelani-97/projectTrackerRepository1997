@@ -1,0 +1,28 @@
+// ==================================================
+// BRANDING
+// ==================================================
+
+.framework1-branding {
+  color: inherit;
+  white-space: nowrap;
+  font-size: 1.125rem
+  i + i {
+    margin-left: 15px;
+}
+  .framework1-branding-logo-expanded {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+
+    [dir='rtl'] & {
+      margin-left: 10px;
+      margin-right: auto;
+    }
+  }
+
+  .framework1-branding-name {
+    font-weight: normal;
+    vertical-align: middle;
+  }
+}
