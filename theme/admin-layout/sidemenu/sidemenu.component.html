@@ -1,0 +1,124 @@
+<perfect-scrollbar >
+    <ul navAccordion class="framework1-sidemenu level-0">
+        <li navAccordionLink class="framework1-sidemenu-item" routerLinkActive="active">
+          <a class="framework1-sidemenu-link" [routerLink]="['/home']" routerLinkActive="active"
+             
+             matRipple [matRippleDisabled]="!ripple">
+            <mat-icon class="menu-icon">dashboard</mat-icon>
+            <span class="menu-name">Home</span>
+            <span class="menu-label bg-{{ label.color }}" *ngIf="label">
+              {{ label.value }}
+            </span>
+            <span fxFlex></span>
+          </a>
+        </li>
+        <li navAccordionLink class="framework1-sidemenu-item" routerLinkActive="active"
+            *ngFor="let menuItem of menus"
+            [group]="menuItem.uri">
+          <a class="framework1-sidemenu-link" [routerLink]="['/home', menuItem.uri]" routerLinkActive="active"
+             *ngIf="menuItem.menuType === 'link'"
+             matRipple [matRippleDisabled]="!ripple">
+            <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+            <span class="menu-name">{{ menuItem.menuName }}</span>
+            <span class="menu-label bg-{{ menuItem.label.color }}" *ngIf="menuItem.label">
+              {{ menuItem.label.value }}
+            </span>
+            <span fxFlex></span>
+          </a>
+          <a class="framework1-sidemenu-link" [href]="menuItem.uri" *ngIf="menuItem.menuType === 'extLink'" 
+             matRipple [matRippleDisabled]="!ripple">
+            <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+            <span class="menu-name">{{ menuItem.menuName }}</span>
+            <span class="menu-label bg-{{ menuItem.label.color }}" *ngIf="menuItem.label">
+              {{ menuItem.label.value }}
+            </span>
+            <span fxFlex></span>
+            <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
+              {{ menuItem.badge.value }}
+            </span>
+          </a>
+          <a class="framework1-sidemenu-link" [href]="menuItem.uri" target="_blank"
+             *ngIf="menuItem.menuType === 'extTabLink'"
+             matRipple [matRippleDisabled]="!ripple">
+            <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+            <span class="menu-name">{{ menuItem.menuName }}</span>
+            <span class="menu-label bg-{{ menuItem.label.color }}" *ngIf="menuItem.label">
+              {{ menuItem.label.value }}
+            </span>
+            <span fxFlex></span>
+            <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
+              {{ menuItem.badge.value }}
+            </span>
+          </a>
+          <!-- level 1 -->
+          <a navAccordionToggle class="framework1-sidemenu-toggle" href="javascript:void(0);"
+             *ngIf="menuItem.menuType === 'sub'"
+             matRipple [matRippleDisabled]="!ripple">
+            <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+            <span class="menu-name">{{ menuItem.menuName }}</span>
+            <span class="menu-label bg-{{ menuItem.label.color }}" *ngIf="menuItem.label">
+              {{ menuItem.label.value }}
+            </span>
+            <span fxFlex></span>
+            <span class="menu-badge bg-{{ menuItem.badge.color }}" *ngIf="menuItem.badge">
+              {{ menuItem.badge.value }}
+            </span>
+            <mat-icon class="menu-caret">arrow_drop_down</mat-icon>
+          </a>
+          <ul navAccordion class="framework1-sidemenu submenu level-1" *ngIf="menuItem.menuType === 'sub'">
+            <li navAccordionLink class="framework1-sidemenu-item" routerLinkActive="active"
+                *ngFor="let childLvl1 of menuItem.subMenu"
+                [group]="childLvl1.uri">
+              <a class="framework1-sidemenu-link" [routerLink]="['/home', menuItem.uri, childLvl1.uri]" routerLinkActive="active"
+                 *ngIf="childLvl1.subMenuType === 'link'"
+                 matRipple [matRippleDisabled]="!ripple">
+                 <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+                <span class="menu-name">{{ childLvl1.subMenuName }}</span>
+              </a>
+              <a class="framework1-sidemenu-link" [href]="childLvl1.uri"
+                 *ngIf="childLvl1.subMenuType === 'extLink'"
+                 matRipple [matRippleDisabled]="!ripple">
+                <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>
+                <span class="menu-name">{{ childLvl1.subMenuName }}</span>
+              </a>
+              <a class="framework1-sidemenu-link" [href]="childLvl1.uri" target="_blank"
+                 *ngIf="childLvl1.subMenuType === 'extTabLink'"
+                 matRipple [matRippleDisabled]="!ripple">
+                <mat-icon class="menu-icon">{{ menuItem.icon }}</mat-icon>          
+                 <span class="menu-name">{{ childLvl1.subMenuName }}</span>
+              </a>
+              <!-- level 2 -->
+              <a navAccordionToggle class="framework1-sidemenu-toggle" href="javascript:void(0);"
+                 *ngIf="childLvl1.subMenuType === 'sub'"
+                 matRipple [matRippleDisabled]="!ripple">
+                <span class="menu-name">{{ childLvl1.subMenuName }}</span>
+                <span fxFlex></span>
+                <mat-icon class="menu-caret">arrow_drop_down</mat-icon>
+              </a>
+              <ul class="framework1-sidemenu submenu level-2" *ngIf="childLvl1.subMenuType === 'sub'">
+                <li class="framework1-sidemenu-item" routerLinkActive="active"
+                    *ngFor="let childLvl2 of childLvl1.children">
+                  <a class="framework1-sidemenu-link"
+                     [routerLink]="filterStates(['/home', menuItem.uri, childLvl1.uri, childLvl2.uri])" routerLinkActive="active"
+                     *ngIf="childLvl2.subMenuName === 'link'"
+                     matRipple [matRippleDisabled]="!ripple">
+                    <span class="menu-name">{{ childLvl2.subMenuName }}</span>
+                  </a>
+                  <a class="framework1-sidemenu-link" [href]="childLvl2.uri"
+                     *ngIf="childLvl2.subMenuType === 'extLink'"
+                     matRipple [matRippleDisabled]="!ripple">
+                    <span class="menu-name">{{ childLvl2.subMenuName }}</span>
+                  </a>
+                  <a class="framework1-sidemenu-link" [href]="childLvl2.uri" target="_blank"
+                     *ngIf="childLvl2.subMenuType === 'extTabLink'"
+                     matRipple [matRippleDisabled]="!ripple">
+                    <span class="menu-name">{{ childLvl2.subMenuName }}</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+</perfect-scrollbar>
+

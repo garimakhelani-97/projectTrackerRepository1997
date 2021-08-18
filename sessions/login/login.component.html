@@ -1,0 +1,75 @@
+<div fxLayout="row wrap">
+  <div class="login-screen" fxFlex.gt-sm="100" fxFlex="100">
+    <!-- <a href="" class="hris-logo">
+      <i class="icon-logo">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 440"
+             style="enable-background:new 0 0 1366 440;" xml:space="preserve" height="42px">
+          <polygon class="graphic-style" points="166.74,100.25 166.74,193.23 59.35,193.23 59.35,100.25 2.08,100.25 2.08,343.48 59.35,343.48 
+							59.35,250.5 166.74,250.5 166.74,343.48 224.01,343.48 224.01,100.25 " />
+          <rect class="graphic-style" x="531.84" y="100.25" width="57.27" height="243.23" />
+          <path class="graphic-style" d="M438.05,265.47c0,0,52.43-22.95,51.17-80.22s-52.22-85.14-86.33-85s-71.5,0-71.5,0h-1.99h-55.28v243.23h57.27
+							v-71.06h56.76l51.17,71.06h57.06L438.05,265.47z M395.52,229.46c-4.4,0.19-54.95,0.04-64.13,0.01V143.4l64.13,0.16
+							c0,0,36.01,10.53,36.01,43.8C431.53,220.62,400.36,229.25,395.52,229.46z" />
+          <path class="graphic-style"
+                d="M825.69,272.21c0,0,1.68-58.96-80.85-71.17s-56.43-47.48-46.32-57.64c10.11-10.16,56.85-15.63,96.86,15.11
+							l22.74-35.37c0,0-24.85-31.58-82.12-29.48c-57.27,2.11-102.33,24.42-104.86,78.33s62.75,67.38,87.59,72.43s58.53,13.9,50.11,37.06
+							c-8.42,23.16-77.91,35.79-120.44-6.32L627.34,316c0,0,29.9,30.32,99.17,29.06S825.69,308.42,825.69,272.21z" />
+          <path class="graphic-style" d="M1149.63,5.22c-118.44,0-214.45,96.01-214.45,214.45c0,118.44,96.01,214.45,214.45,214.45
+							s214.45-96.01,214.45-214.45C1364.08,101.23,1268.07,5.22,1149.63,5.22z M1189.53,150.93v5.9V351.8h-56.43V156.82h-49.69v-48.85
+							h106.12V150.93z" />
+        </svg>
+      </i>
+    </a> -->
+    <div fxFlex.gt-sm="100" fxFlex.gt-md="50" fxFlex="100" class="left-panel">
+      <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval"
+                    [hideIndicators]="hideIndicators" [slides]="slides">
+        <mat-carousel-slide #matCarouselSlide *ngFor="let item of items"
+                            [hideOverlay]="hideOverlay">
+          <ng-container>
+            <div class="contents">
+              <h1>{{ item.title}}</h1>
+              <p>{{ item.desc}}</p>
+            </div>
+          </ng-container>
+        </mat-carousel-slide>
+      </mat-carousel>
+    </div>
+    <div fxFlex.gt-sm="100" fxFlex.gt-md="50" fxFlex="100">
+      <div class="login-body">
+        <h2>Welcome to Project Tracker</h2>
+        <!-- <div class="user-panel">
+            <div class="user-image"><img src="../../../../assets/images/user-96x96.jpg"></div>
+            <span>Johndeo</span><span class="company">MIND</span>
+          </div> -->
+        <form class="framework1-form-horizontal" [formGroup]="reactiveForm">
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Simple placeholder" formControlName="username" required>
+            <mat-error *ngIf="reactiveForm.get('username').invalid">Please enter username
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Simple placeholder" type="password"
+                   formControlName="password" required>
+            <mat-error *ngIf="reactiveForm.get('password').invalid">Please enter password
+            </mat-error>
+          </mat-form-field>
+
+          <div class="m-y-16" fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-checkbox>Remember Me</mat-checkbox>
+            <a href="">Forgot Password?</a>
+          </div>
+
+          <button class="w-full" mat-raised-button color="primary" (click)="login()"
+                  [disabled]="reactiveForm.invalid">Login In</button>
+
+          <!-- <div class="m-t-16">Don't have an account? <a routerLink="/auth/register">Click here to
+              create one</a></div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
